@@ -256,6 +256,122 @@ Link validasi: https://jigsaw.w3.org/css-validator/
 **Screenshot 7 — Hasil Validasi CSS (Jika Dilakukan)**
 
 <!-- MASUKKAN SCREENSHOT 7 DI SINI -->
+---
+
+## Soal dan Jawaban
+
+### 1. Lakukan eksperimen dengan mengubah dan menambah properti dan nilai pada kode CSS dengan mengacu pada CSS Cheat Sheet yang diberikan pada file terpisah dari modul ini.
+
+**Jawaban:**
+
+Eksperimen dilakukan dengan mengubah dan menambahkan properti serta nilai CSS untuk melihat pengaruhnya terhadap tampilan halaman web. Beberapa properti yang digunakan antara lain:
+
+| Properti CSS      | Fungsi                                        |
+| ----------------- | --------------------------------------------- |
+| `background`      | Mengatur latar belakang elemen.               |
+| `color`           | Mengatur warna teks.                          |
+| `font-family`     | Mengatur jenis huruf.                         |
+| `font-size`       | Mengatur ukuran teks.                         |
+| `text-align`      | Mengatur perataan teks.                       |
+| `padding`         | Mengatur jarak antara isi dan batas elemen.   |
+| `margin`          | Mengatur jarak di luar batas elemen.          |
+| `border`          | Mengatur garis batas elemen.                  |
+| `min-height`      | Menentukan tinggi minimum elemen.             |
+| `text-decoration` | Mengatur dekorasi teks, misalnya garis bawah. |
+
+Perubahan properti dan nilai tersebut dapat diamati melalui browser setelah file disimpan dan halaman dimuat ulang.
+
+**Screenshot hasil eksperimen:**
+
+<!-- MASUKKAN SCREENSHOT HASIL EKSPERIMEN CSS DI SINI -->
+
+### 2. Apa perbedaan pendeklarasian CSS elemen `h1 { ... }` dengan `#intro h1 { ... }`? Berikan penjelasannya!
+
+**Jawaban:**
+
+Selector `h1 { ... }` merupakan *element selector* yang berlaku pada elemen `h1` di dokumen HTML. Sementara itu, selector `#intro h1 { ... }` menargetkan elemen `h1` yang berada di dalam elemen dengan ID `intro`.
+
+Contoh:
+
+```css
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+#intro h1 {
+    color: white;
+    text-align: left;
+}
+```
+
+Pada contoh tersebut, elemen `h1` yang berada di dalam `#intro` akan menggunakan warna putih dan perataan teks ke kiri karena selector `#intro h1` lebih spesifik. Elemen `h1` lainnya tetap mengikuti aturan `h1` selama tidak ada aturan lain yang mengubah tampilannya.
+
+### 3. Apabila ada deklarasi CSS secara internal, lalu ditambahkan CSS eksternal dan inline CSS pada elemen yang sama, deklarasi manakah yang akan ditampilkan pada browser? Berikan penjelasan dan contohnya!
+
+**Jawaban:**
+
+Jika ketiga deklarasi mengatur properti yang sama pada elemen yang sama dan semuanya menggunakan aturan normal, *Inline CSS* pada umumnya memiliki prioritas lebih tinggi daripada *Internal CSS* dan *External CSS*. Hasil akhirnya tetap dapat dipengaruhi oleh `!important` dan aturan *cascade* CSS lainnya.
+
+Contoh HTML:
+
+```html
+<head>
+    <style>
+        p {
+            color: blue;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style_eksternal.css">
+</head>
+
+<body>
+    <p style="color: red;">Belajar CSS Dasar</p>
+</body>
+```
+
+Misalnya, file `style_eksternal.css` berisi:
+
+```css
+p {
+    color: green;
+}
+```
+
+Pada contoh tersebut, teks paragraf akan berwarna merah karena atribut `style` pada elemen menetapkan warna merah dan tidak ada aturan dengan prioritas lebih tinggi yang mengalahkannya.
+
+### 4. Pada sebuah elemen HTML terdapat ID dan Class, apabila masing-masing selector tersebut terdapat deklarasi CSS, maka deklarasi manakah yang akan ditampilkan pada browser? Berikan penjelasan dan contohnya! (`<p id="paragraf-1" class="text-paragraf">`)
+
+**Jawaban:**
+
+*ID Selector* memiliki tingkat spesifisitas lebih tinggi daripada *Class Selector*. Jika keduanya mengatur properti yang sama dan tidak ada aturan lain yang mengubah hasilnya, deklarasi *ID Selector* yang akan diterapkan. Jika kedua selector mengatur properti berbeda, masing-masing deklarasi dapat diterapkan secara bersamaan.
+
+Contoh HTML:
+
+```html
+<p id="paragraf-1" class="text-paragraf">
+    Ini adalah contoh paragraf.
+</p>
+```
+
+Contoh CSS:
+
+```css
+#paragraf-1 {
+    color: red;
+}
+
+.text-paragraf {
+    color: blue;
+}
+```
+
+Pada contoh tersebut, teks paragraf akan berwarna merah karena selector `#paragraf-1` memiliki spesifisitas lebih tinggi daripada `.text-paragraf`.
+
+## Kesimpulan Akhir
+
+Melalui Praktikum 3: CSS Dasar, dapat dipahami bahwa CSS berfungsi untuk mengatur tampilan halaman web menggunakan berbagai properti, nilai, dan selector. Praktikum ini juga memberikan pemahaman mengenai penggunaan *Internal CSS*, *External CSS*, *Inline CSS*, *ID Selector*, dan *Class Selector*, termasuk penerapan spesifisitas dan aturan *cascade* CSS.
 
 ## Repository
 
